@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0757b8">
+  <meta name="description" content="Find and download your SQAT AI Augmented Software Testing workshop certificate.">
+  <title>SQAT Certificate Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell nav-wrap">
+      <a class="brand" href="#top" aria-label="SQAT Certificate Portal home">
+        <img src="assets/sqat-logo.png" alt="SQAT logo">
+        <span>Certificate Portal</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#find">Find certificate</a>
+        <a href="#support">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero shell" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> Digital credential centre</p>
+        <h1 id="page-title">Your achievement,<br><em>officially recognised.</em></h1>
+        <p class="hero-text">Find and download your certificate of participation from the AI Augmented Software Testing workshop.</p>
+        <div class="hero-meta" aria-label="Event details">
+          <span>AI Augmented Software Testing</span>
+          <span class="meta-rule"></span>
+          <span>SQAT &middot; DIU</span>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-ring ring-one"></div>
+        <div class="art-ring ring-two"></div>
+        <div class="art-card">
+          <span class="art-check">&#10003;</span>
+          <span class="art-card-label">SQAT</span>
+          <strong>Official<br>certificate</strong>
+          <span class="art-line"></span>
+          <span class="art-small">Daffodil International University</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="search-section shell" id="find" aria-labelledby="search-title">
+      <div class="section-intro">
+        <p class="section-kicker">Certificate lookup</p>
+        <h2 id="search-title">Find your certificate</h2>
+        <p>Enter your full name as it appears on your certificate. We will match it securely against the official participant list.</p>
+      </div>
+      <form class="search-card" id="certificate-form" novalidate>
+        <label for="name-input">Participant name</label>
+        <div class="search-row">
+          <div class="input-wrap">
+            <span class="input-icon" aria-hidden="true">&#9906;</span>
+            <input id="name-input" name="name" type="search" autocomplete="name" placeholder="e.g. Israt Jahan Meem" required>
+          </div>
+          <button class="primary-button" type="submit"><span>Find my certificate</span><span aria-hidden="true">&#8594;</span></button>
+        </div>
+        <p class="form-note">Name matching ignores letter case and extra spaces.</p>
+      </form>
+      <div id="result" class="result-area" aria-live="polite" aria-atomic="true"></div>
+    </section>
+
+    <section class="event-band">
+      <div class="shell event-grid">
+        <div>
+          <p class="section-kicker">The programme</p>
+          <h2>AI Augmented Software Testing:<br><em>A Hands on Workshop with Industry Expert</em></h2>
+        </div>
+        <p>Organised by the Software Quality Assurance &amp; Testing Club, Department of Software Engineering, Daffodil International University.</p>
+      </div>
+    </section>
+
+    <section class="support-section shell" id="support" aria-labelledby="support-title">
+      <div class="support-copy">
+        <p class="section-kicker">Need a hand?</p>
+        <h2 id="support-title">We are here to help.</h2>
+        <p>If you participated in the workshop but cannot find your certificate, contact SQAT with a screenshot of your Gmail or registration information and your contact number.</p>
+      </div>
+      <div class="contact-list">
+        <a href="mailto:sqatclub@diu.edu.bd" class="contact-item"><span class="contact-label">Email</span><strong>sqatclub@diu.edu.bd</strong></a>
+        <a href="tel:+8801714403230" class="contact-item"><span class="contact-label">Phone</span><strong>+880 1714 403230</strong></a>
+        <a href="tel:+8801560068361" class="contact-item"><span class="contact-label">Alternate</span><strong>+880 1560 068361</strong></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div class="footer-brand">
+        <img src="assets/sqat-logo.png" alt="SQAT logo">
+        <p>Software Quality Assurance &amp; Testing Club<br>Department of Software Engineering<br>Daffodil International University</p>
+      </div>
+      <div class="footer-office">
+        <p class="footer-heading">Visit SQAT</p>
+        <p>KT, 6 Floor<br>Software Quality Assurance &amp; Testing Club (SQAT)<br>Department of Software Engineering<br>Daffodil Smart City</p>
+      </div>
+      <div class="footer-credit">
+        <a class="developer-credit" href="https://github.com/TheSourav-001" target="_blank" rel="noopener noreferrer">
+          <img src="https://github.com/TheSourav-001.png?size=160" alt="Sourav Dipto Apu GitHub profile photo">
+          <span><small>Developed by</small><strong>Sourav Dipto Apu</strong><em>GitHub profile</em></span>
+        </a>
+        <p class="copyright">&copy; 2026 SQAT. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="certificate-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
