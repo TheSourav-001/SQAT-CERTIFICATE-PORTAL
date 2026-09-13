@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Verify an official SQAT workshop certificate.">
+  <title>Certificate Verification | SQAT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .verification-page { min-height: 100vh; display: grid; place-items: center; padding: 42px 0; }
+    .verification-shell { width: min(680px, calc(100% - 32px)); }
+    .verification-brand { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 22px; color: var(--ink); font: 700 1rem "Space Grotesk", sans-serif; text-decoration: none; }
+    .verification-brand img { width: 72px; height: auto; }
+    .verification-card { padding: clamp(26px, 6vw, 48px); border: 1px solid rgba(255, 255, 255, .94); border-radius: 24px; background: rgba(255, 255, 255, .78); box-shadow: var(--shadow); backdrop-filter: blur(22px) saturate(140%); -webkit-backdrop-filter: blur(22px) saturate(140%); }
+    .verified-heading { display: flex; align-items: center; gap: 14px; }
+    .verified-mark { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; color: #fff; background: var(--green); font-size: 1.5rem; box-shadow: 0 9px 20px rgba(22, 166, 111, .22); }
+    .verification-card h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); }
+    .verification-card > p { color: var(--muted); margin: 18px 0 0; }
+    .verified-details { display: grid; gap: 16px; margin: 28px 0; padding: 22px; border: 1px solid rgba(7, 87, 184, .14); border-radius: 14px; background: rgba(235, 247, 255, .7); }
+    .verified-details div { display: grid; gap: 3px; }
+    .verified-details dt { color: var(--blue); font-size: .68rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .verified-details dd { margin: 0; font-weight: 700; }
+    .verification-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .verification-actions a { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 18px; border-radius: 8px; color: #fff; background: var(--blue); font-size: .82rem; font-weight: 700; text-decoration: none; }
+    .verification-actions a.secondary { color: var(--blue); border: 1px solid #a9c2df; background: #fff; }
+    .verification-error { border-left: 5px solid #d85449; }
+    @media (max-width: 520px) { .verification-page { padding: 24px 0; } .verification-brand { margin-left: 4px; } .verification-brand img { width: 62px; } .verification-actions a { flex: 1 1 100%; } }
+  </style>
+</head>
+<body>
+  <main class="verification-page">
+    <div class="verification-shell">
+      <a class="verification-brand" href="index.html#find" aria-label="Back to SQAT Certificate Portal">
+        <img src="assets/sqat-logo-transparent.png" alt="SQAT logo">
+        <span>Certificate Portal</span>
+      </a>
+      <section id="verification-result" class="verification-card" aria-live="polite"></section>
+    </div>
+  </main>
+  <script src="certificate-data.js"></script>
+  <script src="verification.js"></script>
+</body>
+</html>

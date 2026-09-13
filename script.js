@@ -33,6 +33,32 @@
       .trim();
   }
 
+  function getCertificateId(certificate) {
+    const certificateIndexPosition = certificateIndex.indexOf(certificate);
+    const sequenceNumber = certificateIndexPosition >= 0 ? certificateIndexPosition + 1 : 0;
+    return `SQAT-2026-${String(sequenceNumber).padStart(3, "0")}`;
+  }
+
+  function getVerificationUrl(certificateId) {
+    const publicPortalUrl = "https://certificate-portal.vercel.app/";
+    return `${publicPortalUrl}verification.html?certificate=${encodeURIComponent(certificateId)}`;
+  }
+
+  function renderQrCode(certificateId) {
+    const qrTarget = document.querySelector("#certificate-qr");
+    if (!qrTarget || !window.QRCode) {
+      return;
+    }
+    new window.QRCode(qrTarget, {
+      text: getVerificationUrl(certificateId),
+      width: 112,
+      height: 112,
+      colorDark: "#0c1d36",
+      colorLight: "#ffffff",
+      correctLevel: window.QRCode.CorrectLevel.H
+    });
+  }
+
   function showMessage(type, title, message) {
     const icon = type === "success" ? "&#10003;" : type === "ambiguous" ? "!" : "&#10005;";
     result.innerHTML = `
@@ -80,6 +106,7 @@
   }
 
   function showCertificate(certificate) {
+    const certificateId = getCertificateId(certificate);
     result.innerHTML = `
       <div class="result-card" role="status">
         <div class="result-heading"><span class="result-icon">&#10003;</span><h3>Certificate found</h3></div>
@@ -97,12 +124,38 @@
           <div><dt>Participant name</dt><dd>${certificate.name}</dd></div>
           <div><dt>Programme</dt><dd>AI Augmented Software Testing</dd></div>
         </dl>
+        <div class="verification-panel">
+          <div class="verification-copy">
+            <span class="verification-label">Digital verification</span>
+            <strong>Scan to verify this certificate</strong>
+            <span>Certificate ID: ${certificateId}</span>
+          </div>
+          <div id="certificate-qr" class="certificate-qr" aria-label="QR code for certificate verification"></div>
+        </div>
         <div class="result-actions">
           <a class="action-button primary" href="${certificate.file}" target="_blank" rel="noopener">View certificate</a>
           <a class="action-button secondary" href="${certificate.file}" download>Download certificate</a>
         </div>
       </div>`;
     renderMobilePreview(certificate.file);
+    renderQrCode(certificateId);
+  }
+
+  function showCertificateFromUrl() {
+    const certificateId = new URLSearchParams(window.location.search).get("certificate");
+    if (!certificateId) {
+      return;
+    }
+    const certificate = certificateIndex.find(function (entry) {
+      return getCertificateId(entry).toLowerCase() === certificateId.toLowerCase();
+    });
+    if (certificate) {
+      input.value = certificate.name;
+      showCertificate(certificate);
+      result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    } else {
+      showMessage("error", "Certificate not found", "This verification link does not match an official certificate.");
+    }
   }
 
   form.addEventListener("submit", function (event) {
@@ -137,4 +190,5 @@
   });
 
   updateDownloadCount();
+  showCertificateFromUrl();
 })();
