@@ -40,7 +40,7 @@
   }
 
   function getVerificationUrl(certificateId) {
-    const publicPortalUrl = "https://certificate-portal.vercel.app/";
+    const publicPortalUrl = "https://sqat-certificate-portal.vercel.app/";
     return `${publicPortalUrl}verification.html?certificate=${encodeURIComponent(certificateId)}`;
   }
 
