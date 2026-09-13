@@ -6,7 +6,7 @@
 
   function getCertificateId(certificate) {
     const index = certificateIndex.indexOf(certificate);
-    return `SQAT-2026-${String(index + 1).padStart(3, "0")}`;
+    return `SQAT-CERTIFICATE-${String(index + 1).padStart(2, "0")}`;
   }
 
   function renderInvalidState() {

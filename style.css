@@ -94,18 +94,17 @@ button { font: inherit; }
 .result-details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin: 24px 0; padding-top: 20px; border-top: 1px solid rgba(22, 166, 111, .2); }
 .result-details dt { color: var(--muted); font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 .result-details dd { margin: 3px 0 0; font-weight: 700; }
-.verification-panel { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin: 24px 0; padding: 18px 20px; border: 1px solid rgba(7, 87, 184, .14); border-radius: 14px; background: rgba(235, 247, 255, .72); }
+.verification-panel { display: flex; align-items: center; margin: 24px 0; padding: 18px 20px; border: 1px solid rgba(7, 87, 184, .14); border-radius: 14px; background: rgba(235, 247, 255, .72); }
 .verification-copy { display: grid; gap: 5px; }
 .verification-label { color: var(--blue); font-size: .68rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
 .verification-copy strong { font: 700 1rem "Space Grotesk", sans-serif; }
 .verification-copy > span:last-child { color: var(--muted); font-size: .78rem; }
-.certificate-qr { display: grid; flex: 0 0 112px; place-items: center; width: 112px; height: 112px; padding: 7px; border: 1px solid rgba(7, 87, 184, .14); border-radius: 8px; background: #fff; }
-.certificate-qr img { display: block; width: 100%; height: 100%; }
 .result-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .action-button { display: inline-flex; align-items: center; justify-content: center; min-height: 47px; padding: 0 22px; border-radius: 5px; text-decoration: none; font-size: .82rem; font-weight: 700; transition: transform .2s, box-shadow .2s; }
 .action-button:hover, .action-button:focus-visible { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(16, 36, 62, .12); }
 .action-button.primary { color: #fff; background: var(--blue); }
 .action-button.secondary { color: var(--blue); border: 1px solid #a9c2df; background: #fff; }
+.action-button.verification-action { color: var(--green); border: 1px solid rgba(22, 166, 111, .35); background: rgba(230, 250, 241, .7); }
 .event-band { position: relative; overflow: hidden; background: linear-gradient(115deg, var(--blue-dark), #075d86 58%, #08764f); color: #fff; }
 .event-band::after { content: ""; position: absolute; width: 330px; height: 330px; right: -100px; top: -190px; border: 1px solid rgba(255, 255, 255, .18); border-radius: 50%; box-shadow: 0 0 0 30px rgba(255, 255, 255, .035), 0 0 0 70px rgba(255, 255, 255, .025); }
 .event-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 80px; align-items: center; padding-block: 70px; }
@@ -152,8 +151,7 @@ button { font: inherit; }
   .search-row { display: block; }
   .primary-button { width: 100%; margin-top: 10px; }
   .result-details { grid-template-columns: 1fr; gap: 14px; }
-  .verification-panel { align-items: flex-start; gap: 16px; padding: 15px; }
-  .certificate-qr { flex-basis: 92px; width: 92px; height: 92px; }
+  .verification-panel { padding: 15px; }
   .certificate-preview { height: auto; min-height: 0; padding: 0; overflow: visible; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
   .certificate-preview iframe { display: none; }
   .mobile-certificate-preview { display: block; padding: 10px; border: 1px solid rgba(7, 87, 184, .2); border-radius: 14px; color: var(--ink); background: linear-gradient(155deg, rgba(255, 255, 255, .95), rgba(224, 245, 255, .82)); box-shadow: 0 15px 30px rgba(7, 87, 184, .12); }
@@ -171,7 +169,7 @@ button { font: inherit; }
   .nav-wrap { gap: 8px; padding-inline: 8px; }
   .brand { gap: 5px; font-size: .72rem; }
   .brand img { width: 48px; }
-  .nav-links { gap: 1px; padding: 7px 0 0; border: 0; border-top: 1px solid rgba(7, 87, 184, .32); background: transparent; box-shadow: none; font-size: .6rem; }
+  .nav-links { gap: 1px; padding: 7px 0 0; border: 0; border-top: 1px solid rgba(7, 87, 184, .32); background: transparent; box-shadow: none; font-size: .56rem; }
   .nav-links a { padding: 6px 4px; }
   .search-card { padding: 18px; }
   .result-card { padding: 21px 16px; }

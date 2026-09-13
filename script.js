@@ -36,27 +36,11 @@
   function getCertificateId(certificate) {
     const certificateIndexPosition = certificateIndex.indexOf(certificate);
     const sequenceNumber = certificateIndexPosition >= 0 ? certificateIndexPosition + 1 : 0;
-    return `SQAT-2026-${String(sequenceNumber).padStart(3, "0")}`;
+    return `SQAT-CERTIFICATE-${String(sequenceNumber).padStart(2, "0")}`;
   }
 
   function getVerificationUrl(certificateId) {
-    const publicPortalUrl = "https://sqat-certificate-portal.vercel.app/";
-    return `${publicPortalUrl}verification.html?certificate=${encodeURIComponent(certificateId)}`;
-  }
-
-  function renderQrCode(certificateId) {
-    const qrTarget = document.querySelector("#certificate-qr");
-    if (!qrTarget || !window.QRCode) {
-      return;
-    }
-    new window.QRCode(qrTarget, {
-      text: getVerificationUrl(certificateId),
-      width: 112,
-      height: 112,
-      colorDark: "#0c1d36",
-      colorLight: "#ffffff",
-      correctLevel: window.QRCode.CorrectLevel.H
-    });
+    return `verification.html?certificate=${encodeURIComponent(certificateId)}`;
   }
 
   function showMessage(type, title, message) {
@@ -126,19 +110,17 @@
         </dl>
         <div class="verification-panel">
           <div class="verification-copy">
-            <span class="verification-label">Digital verification</span>
-            <strong>Scan to verify this certificate</strong>
-            <span>Certificate ID: ${certificateId}</span>
+            <span class="verification-label">Official certificate ID</span>
+            <strong>${certificateId}</strong>
           </div>
-          <div id="certificate-qr" class="certificate-qr" aria-label="QR code for certificate verification"></div>
         </div>
         <div class="result-actions">
+          <a class="action-button verification-action" href="${getVerificationUrl(certificateId)}">Verify certificate</a>
           <a class="action-button primary" href="${certificate.file}" target="_blank" rel="noopener">View certificate</a>
           <a class="action-button secondary" href="${certificate.file}" download>Download certificate</a>
         </div>
       </div>`;
     renderMobilePreview(certificate.file);
-    renderQrCode(certificateId);
   }
 
   function showCertificateFromUrl() {
