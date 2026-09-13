@@ -15,11 +15,11 @@
   <header class="site-header">
     <div class="shell nav-wrap">
       <a class="brand" href="#top" aria-label="SQAT Certificate Portal home">
-        <img src="assets/sqat-logo.png" alt="SQAT logo">
+        <img src="assets/sqat-logo-transparent.png" alt="SQAT logo">
         <span>Certificate Portal</span>
       </a>
       <nav class="nav-links" aria-label="Main navigation">
-        <a href="#find">Find certificate</a>
+        <a href="#find" aria-label="Find certificate">Find certificate</a>
         <a href="#support">Contact</a>
       </nav>
     </div>
@@ -52,21 +52,39 @@
 
     <section class="search-section shell" id="find" aria-labelledby="search-title">
       <div class="section-intro">
+          <div class="section-heading-row">
+            <div>
         <p class="section-kicker">Certificate lookup</p>
         <h2 id="search-title">Find your certificate</h2>
+            </div>
+            <div class="download-counter" aria-label="Certificate downloads">
+              <span>Downloads</span>
+              <strong id="download-count" aria-live="polite">0</strong>
+            </div>
+          </div>
         <p>Enter your full name as it appears on your certificate. We will match it securely against the official participant list.</p>
       </div>
       <form class="search-card" id="certificate-form" novalidate>
         <label for="name-input">Participant name</label>
         <div class="search-row">
           <div class="input-wrap">
-            <span class="input-icon" aria-hidden="true">&#9906;</span>
+            <span class="input-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="10.8" cy="10.8" r="6.4"></circle>
+                <path d="m16 16 4.5 4.5"></path>
+              </svg>
+            </span>
             <input id="name-input" name="name" type="search" autocomplete="name" placeholder="e.g. Israt Jahan Meem" required>
           </div>
           <button class="primary-button" type="submit"><span>Find my certificate</span><span aria-hidden="true">&#8594;</span></button>
         </div>
         <p class="form-note">Name matching ignores letter case and extra spaces.</p>
       </form>
+      <div class="search-instructions" role="note">
+        <strong>Instructions:</strong>
+        <p>Please search using your complete name with the correct spelling. You must enter your full name. Searching only the first or last part of your name, or using an incorrect spelling, will not show your certificate.</p>
+        <p>Uppercase/lowercase does not matter while searching.</p>
+      </div>
       <div id="result" class="result-area" aria-live="polite" aria-atomic="true"></div>
     </section>
 
@@ -97,7 +115,7 @@
   <footer class="site-footer">
     <div class="shell footer-grid">
       <div class="footer-brand">
-        <img src="assets/sqat-logo.png" alt="SQAT logo">
+        <img src="assets/sqat-logo-transparent.png" alt="SQAT logo">
         <p>Software Quality Assurance &amp; Testing Club<br>Department of Software Engineering<br>Daffodil International University</p>
       </div>
       <div class="footer-office">

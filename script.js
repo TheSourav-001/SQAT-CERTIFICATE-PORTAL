@@ -4,7 +4,24 @@
   const form = document.querySelector("#certificate-form");
   const input = document.querySelector("#name-input");
   const result = document.querySelector("#result");
+  const downloadCount = document.querySelector("#download-count");
   const certificateIndex = window.certificateIndex || [];
+  const downloadStorageKey = "sqat-certificate-downloads";
+
+  function getDownloadCount() {
+    const storedCount = Number.parseInt(window.localStorage.getItem(downloadStorageKey), 10);
+    return Number.isFinite(storedCount) && storedCount >= 0 ? storedCount : 0;
+  }
+
+  function updateDownloadCount() {
+    downloadCount.textContent = getDownloadCount().toLocaleString();
+  }
+
+  function recordDownload() {
+    const nextCount = getDownloadCount() + 1;
+    window.localStorage.setItem(downloadStorageKey, String(nextCount));
+    downloadCount.textContent = nextCount.toLocaleString();
+  }
 
   function normalizeName(value) {
     return value
@@ -67,4 +84,13 @@
       result.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }, 220);
   });
+
+  result.addEventListener("click", function (event) {
+    const downloadLink = event.target.closest("a[download]");
+    if (downloadLink) {
+      recordDownload();
+    }
+  });
+
+  updateDownloadCount();
 })();
